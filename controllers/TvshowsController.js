@@ -48,7 +48,7 @@ exports.delById = async (req, res) => {
 };
 exports.updatePosterById = async (req, res) => {
         try{
-             const result = await Tvshow.findByIdAndUpdate({_id: ObjectId(req.params.tvId) }, {$set:{thumbnail:req.file.filename}},  {upsert: true});
+             const result = await Tvshow.findByIdAndUpdate({_id: ObjectId(req.params.tvId) }, {$set:{thumbnail:req.file.location}},  {upsert: true});
             res.json(new Response(false, "Poster Saved successfully",result));
         }catch(e){
             res.json(new Response(true, "Changes Failed", null));
