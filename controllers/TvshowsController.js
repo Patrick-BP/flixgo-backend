@@ -83,9 +83,7 @@ exports.filter = async (req, res) => {
         filter = {...filter,  country: country}
     }
     
-    if(rating){
-        filter = {...filter, rating: {$gte:rating}}
-    }
+  
     if(language){
         filter = {...filter, language: language,}
     }
