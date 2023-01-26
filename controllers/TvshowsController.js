@@ -65,12 +65,11 @@ exports.filter = async (req, res) => {
     const start = new Date(year, 0, 1);
     const end = new Date(year, 12, 31);
     let filter = {};
-    if(genre && year && quality && rating && language){
+    if(genre && year && country && language){
         filter = {...filter,
         genre:{ $in: [genre] },
         releaseDate: { $gte: start, $lt: end },
         country: country,
-        rating: {$gte:rating},
         language: language}
     }
     if(genre){
