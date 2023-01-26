@@ -35,8 +35,9 @@ try{
    
 };
 exports.updatePosterById = async (req, res) => {
+    
     try{
-         const result = await Movie.findByIdAndUpdate({_id: ObjectId(req.params.movieId) }, {$set:{thumbnail:req.file.filename}},  {upsert: true});
+         const result = await Movie.findByIdAndUpdate({_id: ObjectId(req.params.movieId) }, {$set:{thumbnail:req.file.location}},  {upsert: true});
         res.json(new Response(false, "Poster Saved successfully",result));
     }catch(e){
         res.json(new Response(true, "Changes Failed", null));
@@ -46,7 +47,7 @@ exports.updatePosterById = async (req, res) => {
 
 exports.updateVideoById = async (req, res) => {
         try{
-             const result = await Movie.findByIdAndUpdate({_id: ObjectId(req.params.movieId) }, {$set:{videourl:req.file.filename}},  {upsert: true});
+             const result = await Movie.findByIdAndUpdate({_id: ObjectId(req.params.movieId) }, {$set:{videourl:req.file.location}},  {upsert: true});
             res.json(new Response(false, "video  Saved successfully",result));
         }catch(e){
             res.json(new Response(true, "Changes Failed", null));

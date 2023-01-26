@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const multer = require('multer')
+const multer = require('multer');
 const path = require("path");
 require('dotenv').config();
 const userRouter = require("./routers/UserRouter");
@@ -18,6 +18,7 @@ const auth = require('./services/authentication');
 const checkRole =  require('./services/checkRole');
 const openRouter = require('./routers/openRouter');
 const RatingRouter = require('./routers/RantingRouter')
+const multerS3 = require('multer-s3')
 
 const app = express();
 
@@ -27,6 +28,9 @@ app.use(cors());
 app.use(express.json());
 app.use("/public", express.static(path.join(__dirname,"/public")));
  
+
+
+
 app.use(authRouter);
 
 app.use("/user",auth.authenticationToken, userRouter);

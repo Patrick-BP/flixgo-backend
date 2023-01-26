@@ -69,7 +69,7 @@ exports.delById = async (req, res) => {
 };
 exports.updateVideoById = async (req, res) => {
             try{
-                 const result = await Episode.findByIdAndUpdate({_id: ObjectId(req.params.episId) }, {$set:{videourl:req.file.filename}},  {upsert: true});
+                 const result = await Episode.findByIdAndUpdate({_id: ObjectId(req.params.episId) }, {$set:{videourl:req.file.location}},  {upsert: true});
                 res.json(new Response(false, "video  Saved successfully",result));
             }catch(e){
                 res.json(new Response(true, "Changes Failed", null));

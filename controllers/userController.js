@@ -157,7 +157,7 @@ exports.forgotPassword = async (req, res)=>{
 exports.uploadProfilePic = async (req, res)=>{
  
   try{
-    const result = await User.findByIdAndUpdate({_id: ObjectId(req.params.userId) }, {$set:{imgUrl:req.file.filename}},  {upsert: true});
+    const result = await User.findByIdAndUpdate({_id: ObjectId(req.params.userId) }, {$set:{imgUrl:req.file.location}},  {upsert: true});
    
     res.json(new Response(false, "updated successfully", result));
     }catch(e){
