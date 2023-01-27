@@ -76,7 +76,7 @@ exports.filter = async (req, res) => {
         filter = {...filter,  genre:{ $in: [genre] }}
     }
     if(year){
-        filter = {...filter, releaseDate: { $eq: start, $lt: end }}
+        filter = {...filter, releaseDate: { $gte: start, $lt: end }}
     }
     if(country){
         filter = {...filter,  country: country}
