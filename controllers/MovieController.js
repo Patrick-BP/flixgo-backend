@@ -85,7 +85,7 @@ exports.filter = async (req, res) => {
     const rating = req.body.rating;
     const language = req.body.language;
     
-    const start = new Date(year, 0, 1);
+    const start = new Date(year, 1, 1);
     const end = new Date(year, 12, 31);
 
     let filter = {};
