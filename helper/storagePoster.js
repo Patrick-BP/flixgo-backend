@@ -38,4 +38,4 @@ const storage = multer({ storage:diskstorage}).single('image');
 //   })
 // })
 // const storage = multer(uploadS3).single('image');
-// module.exports = storage;
+module.exports = storage;
